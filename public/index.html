@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="metaTitle">Restaurant Belvédère</title>
+<meta id="metaDesc" name="description" content="">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="restaurant.restaurant">
+<meta id="ogTitle" property="og:title" content="">
+<meta id="ogDesc" property="og:description" content="">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%2317231c%22/><path d=%22M20 65 L35 35 L50 55 L65 25 L80 60%22 stroke=%22%23c6a15b%22 stroke-width=%228%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<script type="application/ld+json" id="ldJson">{}</script>
+<script type="application/ld+json" id="ldJsonFaq">{}</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="nav">
+    <a href="#top" class="brand" id="brandName">Restaurant <span>Belvédère</span></a>
+    <ul class="links" id="navLinks"></ul>
+    <div class="nav-right">
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-current" id="langCurrentBtn" aria-haspopup="true" aria-expanded="false">FR <span>▾</span></button>
+        <div class="lang-menu" id="langMenu"></div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème" title="Mode clair / sombre">◐</button>
+      <a href="#reserve" class="btn btn-solid" id="ctaReserve">Réserver</a>
+      <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+  <div class="subbar">
+    <a href="tel:" id="subbarPhone">📞</a>
+    <a href="#" target="_blank" rel="noopener" id="subbarAddr">📍</a>
+  </div>
+</header>
+
+<div id="mobileDrawer" class="mobile-drawer">
+  <div class="mobile-drawer-top">
+    <span class="mono" id="mobileDrawerLabel">Menu</span>
+    <button id="closeMobileDrawer" aria-label="Fermer le menu">✕</button>
+  </div>
+  <ul class="mobile-links" id="mobileLinks"></ul>
+  <div class="mobile-langs" id="mobileLangSwitch"></div>
+  <a href="#reserve" class="btn btn-solid" id="mobileCta" style="text-align:center; margin-top:20px;">Réserver</a>
+</div>
+<div id="drawerBackdrop" class="drawer-backdrop"></div>
+
+<div class="mobile-actionbar">
+  <a href="tel:" class="call" id="mobileCall">📞</a>
+  <a href="#" target="_blank" rel="noopener" class="call" id="mobileItinerary">🧭</a>
+  <a href="#reserve" class="book" id="mobileBook">Réserver</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="topo" aria-hidden="true">
+    <svg viewBox="0 0 1200 700" preserveAspectRatio="none">
+      <path d="M-50 600 C 150 500, 250 620, 400 520 S 650 420, 800 520 S 1050 460, 1250 540" stroke="#c6a15b" stroke-width="1.5" fill="none"/>
+      <path d="M-50 520 C 150 430, 260 540, 420 450 S 660 350, 810 450 S 1040 400, 1250 460" stroke="#c6a15b" stroke-width="1.5" fill="none"/>
+      <path d="M-50 440 C 160 360, 270 450, 430 380 S 670 290, 820 380 S 1030 340, 1250 380" stroke="#c6a15b" stroke-width="1" fill="none"/>
+      <path d="M-50 360 C 170 300, 280 370, 440 320 S 680 250, 830 320 S 1020 290, 1250 310" stroke="#c6a15b" stroke-width="1" fill="none"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <span class="eyebrow" id="heroEyebrow"></span>
+    <span class="status-pill" id="statusPill"><span class="dot" id="statusDot"></span><span id="statusText"></span></span>
+    <h1 id="heroTitle"></h1>
+    <p class="lead" id="heroLead"></p>
+    <div class="hero-ctas">
+      <a href="#reserve" class="btn btn-solid" id="heroCta1"></a>
+      <a href="#menu" class="btn btn-ghost" id="heroCta2"></a>
+    </div>
+    <div class="scrollcue"><div class="ln"></div><span id="scrollLabel"></span></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2 id="aboutTitle"></h2></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <img id="aboutImg" class="about-img" style="display:none;" alt="">
+        <p id="aboutText"></p>
+        <blockquote id="aboutQuote"></blockquote>
+      </div>
+      <div class="ledger-strip">
+        <div class="row"><span id="lblFounded"></span><span id="valFounded"></span></div>
+        <div class="row"><span id="lblSeats"></span><span id="valSeats"></span></div>
+        <div class="row"><span id="lblChef"></span><span id="valChef"></span></div>
+        <div class="row"><span id="lblStyle"></span><span id="valStyle"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2 id="menuTitle"></h2></div>
+    <div class="tabs" id="menuTabs"></div>
+    <div id="menuLists"></div>
+    <p class="menu-note" id="menuNote"></p>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2 id="galleryTitle"></h2></div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section id="visit">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><h2 id="visitTitle"></h2></div>
+    <div class="visit-grid">
+      <div><table class="hours-table" id="hoursTable"></table></div>
+      <div>
+        <div class="addr-block">
+          <p class="mono" id="addrLine1"></p>
+          <p class="mono" id="addrLine2"></p>
+          <p class="mono" id="addrPhone"></p>
+          <p class="mono" id="addrEmail"></p>
+        </div>
+        <iframe class="map-frame" width="100%" height="220" loading="lazy" title="Localisation" id="mapFrame"></iframe>
+        <a href="#" target="_blank" rel="noopener" class="gmaps-link mono" id="gmapsLink">Voir sur Google Maps ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVIS ============ -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04.5</span><h2 id="reviewsTitle"></h2></div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04.7</span><h2 id="faqTitle"></h2></div>
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<!-- ============ RESERVATION ============ -->
+<section id="reserve">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><h2 id="reserveTitle"></h2></div>
+    <div class="res-grid">
+      <form class="res-form" id="resForm">
+        <div class="row2">
+          <div><label id="lblName"></label><input type="text" id="rName" required></div>
+          <div><label id="lblPhone"></label><input type="tel" id="rPhone" required></div>
+        </div>
+        <div class="row2">
+          <div><label id="lblDate"></label><input type="date" id="rDate" required></div>
+          <div><label id="lblTime"></label><input type="time" id="rTime" required></div>
+        </div>
+        <div><label id="lblGuests"></label><input type="number" id="rGuests" min="1" max="20" value="2" required></div>
+        <div><label id="lblMsg"></label><textarea id="rMsg" rows="3"></textarea></div>
+        <button type="submit" class="btn btn-solid" id="rSubmit" style="border:none;"></button>
+        <p class="res-confirm" id="resConfirm"></p>
+      </form>
+      <div class="res-side">
+        <p id="resNote"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:12px; display:inline-block;" id="footBrand">Restaurant <span style="color:var(--brass)">Belvédère</span></div>
+        <p style="color:var(--paper-dim); font-size:0.9rem; max-width:34ch;" id="footTagline"></p>
+      </div>
+      <div><h4 id="footNavTitle"></h4><ul id="footNav"></ul></div>
+      <div>
+        <h4 id="footContactTitle"></h4>
+        <ul>
+          <li id="footPhone"></li>
+          <li id="footEmail"></li>
+          <li><a href="#" id="footInsta">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span id="copyright"></span>
+      <button class="admin-trigger" id="openAdmin">Gestion du site</button>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ ADMIN OVERLAY ============ -->
+<div id="adminOverlay">
+  <div class="admin-panel">
+
+    <div id="passGate">
+      <h2>Espace de gestion</h2>
+      <p class="admin-sub">Connectez-vous avec votre compte administrateur pour gérer le contenu du site.</p>
+      <form class="login-form" id="loginForm">
+        <div><label>E-mail</label><input type="email" id="loginEmail" autocomplete="username" required></div>
+        <div><label>Mot de passe</label><input type="password" id="loginPassword" autocomplete="current-password" required></div>
+        <p class="login-error" id="loginError"></p>
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:6px;">
+          <button type="submit" class="btn btn-solid">Se connecter</button>
+          <button type="button" class="btn btn-ghost" id="passCancel">Annuler</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="adminBody" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;">
+        <div>
+          <h2>Gestion du contenu</h2>
+          <p class="admin-sub">Modifiez chaque section puis cliquez sur « Enregistrer » : les changements sont publiés immédiatement.</p>
+        </div>
+        <button class="btn btn-ghost" id="logoutBtn" style="height:fit-content;">Se déconnecter</button>
+      </div>
+      <div class="admin-tabs">
+        <button data-tab="general" class="active">Général</button>
+        <button data-tab="hero">Hero</button>
+        <button data-tab="about">À propos</button>
+        <button data-tab="menu">Carte</button>
+        <button data-tab="gallery">Galerie</button>
+        <button data-tab="reviews">Avis</button>
+        <button data-tab="faq">FAQ</button>
+        <button data-tab="hours">Horaires</button>
+        <button data-tab="contact">Contact</button>
+        <button data-tab="reservations">Réservations</button>
+        <button data-tab="account">Compte</button>
+      </div>
+      <div id="adminSections"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toastHost"></div>
+
+<script src="/js/i18n.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/site.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>
